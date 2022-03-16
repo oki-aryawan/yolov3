@@ -24,14 +24,10 @@ while True:
     ret, frame = video.read()
     if not ret:
         break
-
     if w is None or h is None:
         h, w = frame.shape[:2]
-
-
     blob = cv2.dnn.blobFromImage(frame, 1 / 255.0, (416, 416),
                                  swapRB=True, crop=False)
-
     network.setInput(blob)
     start = time.time()
     output_from_network = network.forward(layers_names_output)
