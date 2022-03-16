@@ -21,11 +21,11 @@ cv2.imshow('Blob Image', cv2.cvtColor(show_blob, cv2.COLOR_RGB2BGR))
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-with open('../yolo-coco-data/coco.names') as f:
+with open('yolo-coco-data/coco.names') as f:
     labels = [line.strip() for line in f]
 print(f'List with labels name: {labels}')
-network = cv2.dnn.readNetFromDarknet('../yolo-coco-data/yolov3.cfg',
-                                     '../yolo-coco-data/yolov3.weights')
+network = cv2.dnn.readNetFromDarknet('yolo-coco-data/yolov3.cfg',
+                                     'yolov3.weights')
 layers_name_all = network.getLayerNames()
 print(layers_name_all)
 layers_name_output = [layers_name_all[i - 1] for i in network.getUnconnectedOutLayers()]

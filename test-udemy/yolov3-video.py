@@ -2,15 +2,15 @@ import cv2
 import numpy as np
 import time
 
-video = cv2.VideoCapture('videos/traffic-cars.mp4')
+video = cv2.VideoCapture('videos/cattle.mp4')
 writer = None
 h, w = None, None
 
 with open('yolo-coco-data/coco.names') as f:
     labels = [line.strip() for line in f]
 
-network = cv2.dnn.readNetFromDarknet('../yolo-coco-data/yolov3.cfg',
-                                     '../yolo-coco-data/yolov3.weights')
+network = cv2.dnn.readNetFromDarknet('yolo-coco-data/yolov3.cfg',
+                                     'yolov3.weights')
 layers_name_all = network.getLayerNames()
 layers_names_output = \
     [layers_name_all[i - 1] for i in network.getUnconnectedOutLayers()]
@@ -78,7 +78,7 @@ while True:
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, colour_box_current, 2)
     if writer is None:
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        writer = cv2.VideoWriter('videos/result-traffic-cars.mp4', fourcc, 30,
+        writer = cv2.VideoWriter('videos/result-catte.mp4', fourcc, 30,
                                  (frame.shape[1], frame.shape[0]), True)
     writer.write(frame)
     cv2.namedWindow('Detection', cv2.WINDOW_NORMAL)

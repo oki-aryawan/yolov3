@@ -8,8 +8,8 @@ h, w = None, None
 with open('yolo-coco-data/coco.names') as f:
     labels = [line.strip() for line in f]
 
-network = cv2.dnn.readNetFromDarknet('../yolo-coco-data/yolov3.cfg',
-                                     '../yolo-coco-data/yolov3.weights')
+network = cv2.dnn.readNetFromDarknet('yolo-coco-data/yolov3.cfg',
+                                     'yolov3.weights')
 layers_names_all = network.getLayerNames()
 layers_names_output = \
     [layers_names_all[i - 1] for i in network.getUnconnectedOutLayers()]
