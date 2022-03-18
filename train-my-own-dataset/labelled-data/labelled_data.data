@@ -1,0 +1,5 @@
+classes = 2
+train = A:/1. PROJECT/python/yolov3/train-my-own-dataset/labelled-data/train.txt
+valid = A:/1. PROJECT/python/yolov3/train-my-own-dataset/labelled-data/test.txt
+names = A:/1. PROJECT/python/yolov3/train-my-own-dataset/labelled-data/classes.names
+backup = backup
